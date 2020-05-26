@@ -6,6 +6,10 @@ const mangaSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    author: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
     },
@@ -13,18 +17,17 @@ const mangaSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    createAt: {
-        type: Date,
-        required:true,
-        default: Date.now
-    },
     coverImageName: {
         type: String,
     },
-    author: {
-        type: String,
-        required
+    createAt: {
+        type: Date,
+        default: Date.now
+    },
+    updateAt: {
+        type: Date,
+        default: Date.now
     }
 })
 
-module.exports = mongoose.model('Book', bookSchema)
+module.exports = mongoose.model('Manga', mangaSchema)

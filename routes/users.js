@@ -34,13 +34,14 @@ router.post('/', async (req, res) => {
   const user = new User({
     name: req.body.name,
     email: req.body.email,
-    pwd: req.body.pwd
+    password: req.body.pwd
   })
   try {
     const newUser = await user.save();
     // res.redirect(`users/${newUser.id}`)
     res.redirect(`users`);
-  } catch {
+  } catch (error) {
+    console.log(error)
     res.render('users/new', {
       user: user,
       errorMessage: 'Error creating User',
